@@ -55,6 +55,8 @@ T.ComboBox {
     delegate: ItemDelegate {
         width: parent.width
         text: control.textRole ? (Array.isArray(control.model) ? modelData[control.textRole] : model[control.textRole]) : modelData
+        palette.text: control.palette.text
+        palette.highlightedText: control.palette.highlightedText
         font.weight: control.currentIndex === index ? Font.DemiBold : Font.Normal
         highlighted: control.highlightedIndex === index
         hoverEnabled: control.hoverEnabled
@@ -132,6 +134,8 @@ T.ComboBox {
             T.ScrollIndicator.vertical: ScrollIndicator { }
         }
 
-        background: Rectangle { }
+        background: Rectangle {
+            color: control.palette.window
+        }
     }
 }
